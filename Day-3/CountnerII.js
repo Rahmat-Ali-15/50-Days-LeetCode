@@ -9,23 +9,22 @@
 // reset() sets the current value to init and then returns it.
 
 
-const createCounter = () => {
-    let init = 0;
+const createCounter = (init) => {
+    let presentCount = init;
     return {
-        increment : function (){
-            return ++init
+        increment: function(){
+            return ++presentCount
         },
-        decrement : function (){
-            return --init
+        decrement: function(){
+            return --presentCount
         },
-        reset : function (){
-            return 0
+        reset: function(){
+            return presentCount = init
         }
     }
 }
 
-let ans = createCounter()
-console.log("🚀 ~ ans:", ans.increment());
+let ans = createCounter(5)
 console.log("🚀 ~ ans:", ans.increment());
 console.log("🚀 ~ ans:", ans.decrement());
 console.log("🚀 ~ ans:", ans.reset());
