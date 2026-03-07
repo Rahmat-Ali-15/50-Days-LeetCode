@@ -45,3 +45,12 @@ console.log("🚀 ~ result:", result);
 // let result = chunckedArr()
 // console.log("🚀 ~ result:", result);
 
+
+
+
+
+const fn = (...args) => {
+    let a = [...args]
+    console.log(a)
+}
+console.log(fn(a,b))
