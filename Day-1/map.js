@@ -11,7 +11,24 @@ The returned array should be created such that returnedArray[i] = fn(arr[i], i).
 
 // # Custom map method
 
+
+// This will not change the original arr // # Prefered
 const map = (arr, fn) => {
+    let mappedArr = []
+
+    for(let i = 0; i<arr.length; i++){
+        mappedArr.push(fn(arr[i],i))
+    }
+    return mappedArr
+}
+
+const result = map([2,3,4,5], (x) => x+5)
+console.log("🚀 ~ result:", result);
+
+
+
+// This will change the original arr // # Not prefered
+const map1 = (arr, fn) => {
     let mappedArr = []
 
     for(let i = 0; i<arr.length; i++){
@@ -21,8 +38,8 @@ const map = (arr, fn) => {
     return mappedArr
 }
 
-const result = map([2,3,4,5], (x) => x+5)
-console.log("🚀 ~ result:", result);
+const result1 = map1([2,3,4,5], (x) => x+5)
+console.log("🚀 ~ result:", result1);
 
 
 // # This is for reference logic
@@ -38,3 +55,18 @@ console.log("🚀 ~ result:", result);
 // }
 // let ans = map()
 // console.log("🚀 ~ ans:", ans);
+
+
+
+// Second version without using push
+function map2(arr, fn) {
+    let newArr = [];
+    for(let i = 0; i < arr.length; i++){
+        newArr[i] = fn(arr[i],i)
+    }
+    return newArr
+}
+
+let ans = map2([5,7,6,4], (x)=> x*2)
+console.log("🚀 ~ ans:", ans);
+
